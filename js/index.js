@@ -1,9 +1,16 @@
-var game= new Phaser.Game(800,600,Phaser.AUTO,'phaser-example',{preload:preload,create:create});
+var game= new Phaser.Game(800,600,Phaser.AUTO);
 
-function preload(){
-	game.load.image('pic','assets/pic.jpg');
+var Gamestate = {
+	preload:function preload(){
+		game.load.image('pic','/assets/robot.png');
+	},
+	create:function create(){
+		var image=game.add.image(0,0,'pic');
+	},
+	update:function update(){
+
+	}
 }
 
-function create(){
-	var image=game.add.image(100,100,'pic');
-}
+game.state.add('Gamestate',Gamestate);
+game.state.start('Gamestate');
